@@ -7,12 +7,12 @@ A comprehensive collection of skills for IBM Cloud Logs (powered by Coralogix) t
 This repository contains specialized skills that enable AI assistants to help customers with various aspects of IBM Cloud Logs:
 
 - **TCO Policy Optimizer** - Cost optimization and data pipeline management
-- **Alerts** - Alert creation, configuration, and troubleshooting
+- **Cloud Logs Alerts** - Alert creation, configuration, and troubleshooting
 - **DataPrime Query Builder** - Query construction and optimization
 
 ## Skills
 
-### 1. TCO Policy Optimizer (`tco/`)
+### 1. TCO Policy Optimizer (`tco-policy-optimizer/`)
 
 **Purpose**: Help customers optimize Total Cost of Ownership (TCO) by configuring data pipeline routing and troubleshooting cost-related issues.
 
@@ -43,7 +43,7 @@ This repository contains specialized skills that enable AI assistants to help cu
 
 ---
 
-### 2. Alerts (`alerts/`)
+### 2. Cloud Logs Alerts (`cloud-logs-alerts/`)
 
 **Purpose**: Help customers create, configure, and troubleshoot alerts in IBM Cloud Logs.
 
