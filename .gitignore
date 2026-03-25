@@ -1,0 +1,8 @@
+# Bob settings folder
+.bob/
+
+# Cheetsheet folder
+.cheetsheet/
+
+# macOS system files
+.DS_Store
