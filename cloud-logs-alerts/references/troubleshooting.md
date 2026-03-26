@@ -13,6 +13,129 @@
 
 ---
 
+## ⚠️ CRITICAL: Alert Severity vs Log Severity Filter
+
+**This is one of the most common sources of confusion when creating alerts.**
+
+### Understanding the Difference
+
+There are TWO different "severity" concepts in alert configuration:
+
+#### 1. Alert Severity (Classification)
+- **JSON field**: `"severity": "error"`
+- **Purpose**: Classifies how important/urgent the alert itself is
+- **Values**: `info`, `warning`, `error`, `critical`
+- **Does NOT filter logs**: This is just metadata about the alert
+- **Example**: "This is a critical alert" (describes the alert, not the logs)
+
+#### 2. Log Severity Filter (Optional Filter)
+- **JSON field**: `"filters": { "severities": ["error", "critical"] }`
+- **Purpose**: Filters which log severities can trigger the alert
+- **Values**: Array of `debug`, `verbose`, `info`, `warning`, `error`, `critical`
+- **DOES filter logs**: Only logs matching these severities will trigger the alert
+- **If empty `[]` or omitted**: Matches ALL log severities
+
+### Example: The Confusion
+
+```json
+{
+  "name": "Payment Service Alert",
+  "severity": "error",              ← Alert classification (NOT a filter!)
+  "filters": {
+    "severities": []                ← Empty = matches ALL log severities!
+  },
+  "condition": {
+    "threshold": 10
+  }
+}
+```
+
+**What users think**: "This alert only triggers on error logs"
+**What actually happens**: Alert triggers on ALL logs (debug, verbose, info, warning, error, critical)
+
+### Correct Configuration
+
+```json
+{
+  "name": "Payment Service Errors",
+  "severity": "error",                    ← Alert is classified as "error"
+  "filters": {
+    "severities": ["error", "critical"]   ← Only trigger on error/critical LOGS
+  },
+  "condition": {
+    "threshold": 10
+  }
+}
+```
+
+**Result**: Alert triggers only when there are 10+ logs with severity "error" or "critical"
+
+### Best Practices
+
+✅ **DO**: Always explicitly set `filters.severities` if you want to filter by log severity
+```json
+"filters": {
+  "severities": ["error", "critical"]
+}
+```
+
+❌ **DON'T**: Rely on alert severity to filter logs
+```json
+{
+  "severity": "error",     // This doesn't filter logs!
+  "filters": {
+    "severities": []       // This matches ALL logs!
+  }
+}
+```
+
+✅ **DO**: Match alert severity to the log severities you're monitoring
+```json
+{
+  "severity": "critical",              // Alert is critical
+  "filters": {
+    "severities": ["critical"]         // Monitors critical logs
+  }
+}
+```
+
+### Common Scenarios
+
+#### Scenario 1: Monitor Only Errors
+```json
+{
+  "name": "Error Monitoring",
+  "severity": "error",
+  "filters": {
+    "severities": ["error"]            // Only error logs
+  }
+}
+```
+
+#### Scenario 2: Monitor Errors and Critical
+```json
+{
+  "name": "High Severity Monitoring",
+  "severity": "critical",
+  "filters": {
+    "severities": ["error", "critical"]  // Error + critical logs
+  }
+}
+```
+
+#### Scenario 3: Monitor All Logs (Rare)
+```json
+{
+  "name": "All Activity Monitoring",
+  "severity": "info",
+  "filters": {
+    "severities": []                    // Explicitly empty = all severities
+  }
+}
+```
+
+---
+
 ## TCO Policy Issues
 
 ### Problem: Alert Never Triggers (Most Common Issue)
