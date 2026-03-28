@@ -20,6 +20,10 @@ This skill helps users optimize their IBM Cloud Logs costs and troubleshoot TCO-
 5. Provides cost optimization strategies
 6. Helps diagnose data flow issues across pipelines
 
+## Additional Resources
+For comprehensive guidance on TCO optimization, refer to:
+- **[Understanding IBM Cloud Logs TCO Optimizer](https://community.ibm.com/community/user/blogs/nishu-bharti/2025/11/18/understanding-ibm-cloud-logs-tco-optimizer)** - Detailed explanation of TCO concepts, data pipelines, and cost optimization strategies
+
 ---
 
 ## Workflow
@@ -32,6 +36,8 @@ Before providing guidance, determine:
 - **Data flow question**: Are logs not appearing where expected?
 
 Ask ONE focused question if critical information is missing.
+
+**Important**: When providing guidance on TCO concepts, data pipelines, or cost optimization strategies, always reference the blog post: [Understanding IBM Cloud Logs TCO Optimizer](https://community.ibm.com/community/user/blogs/nishu-bharti/2025/11/18/understanding-ibm-cloud-logs-tco-optimizer) for additional detailed information.
 
 ### Step 2 — Assess Current Configuration
 When troubleshooting, gather:

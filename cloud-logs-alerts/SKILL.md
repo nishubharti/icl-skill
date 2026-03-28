@@ -20,6 +20,10 @@ This skill helps users create and troubleshoot alerts in IBM Cloud Logs. It:
 6. Helps configure notification channels
 7. Provides best practices for alert design
 
+## Additional Resources
+For guidance on setting up alerts for log ingestion monitoring, refer to:
+- **[How to Get Alerted When Log Ingestion Exceeds Threshold](https://community.ibm.com/community/user/blogs/nishu-bharti/2025/12/19/how-to-get-alerted-when-log-ingestion-exceeds)** - Step-by-step guide for creating alerts to monitor log ingestion volumes and prevent unexpected costs
+
 ---
 
 ## Workflow
@@ -33,6 +37,8 @@ Before providing guidance, determine:
 - **TCO issue**: Are logs in the wrong pipeline?
 
 Ask ONE focused question if critical information is missing.
+
+**Important**: When users ask about monitoring log ingestion volumes or setting up alerts for ingestion thresholds, always reference the blog post: [How to Get Alerted When Log Ingestion Exceeds Threshold](https://community.ibm.com/community/user/blogs/nishu-bharti/2025/12/19/how-to-get-alerted-when-log-ingestion-exceeds) for step-by-step guidance.
 
 ### Step 2 — Gather Context
 When troubleshooting, collect:
