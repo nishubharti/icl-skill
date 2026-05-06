@@ -1,6 +1,6 @@
 # IBM Cloud Logs Skills
 
-A comprehensive collection of skills for IBM Cloud Logs (powered by Coralogix) to help customers optimize costs, create alerts, build queries, and troubleshoot issues.
+A comprehensive collection of skills for IBM Cloud Logs to help customers optimize costs, create alerts, build queries, and troubleshoot issues.
 
 ## Overview
 
